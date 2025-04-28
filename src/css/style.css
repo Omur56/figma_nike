@@ -10,7 +10,7 @@ html {
     scrollbar-width: thin;
 }
 body {
-    zoom: 85%;
+    zoom: 75%;
     /* border: 1px solid rgb(255, 0, 0); */
 }
 
@@ -222,352 +222,78 @@ body {
 
 /* ---------slider bg */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-
-/* Animated background gradient */
-@keyframes gradientBG {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-/* Floating background elements */
-.floating-shape {
-    position: fixed;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 0;
-}
-
-.shape1 {
-    top: 10%;
-    left: 10%;
-    width: 180px;
-    height: 180px;
-    animation: floatAnimation 20s infinite alternate ease-in-out;
-}
-
-.shape2 {
-    top: 70%;
-    left: 20%;
-    width: 120px;
-    height: 120px;
-    animation: floatAnimation 15s infinite alternate-reverse ease-in-out;
-}
-
-.shape3 {
-    top: 30%;
-    right: 15%;
-    width: 150px;
-    height: 150px;
-    animation: floatAnimation 25s infinite alternate ease-in-out;
-    animation-delay: 5s;
-}
-
-.shape4 {
-    bottom: 15%;
-    right: 10%;
-    width: 200px;
-    height: 200px;
-    animation: floatAnimation 18s infinite alternate-reverse ease-in-out;
-    animation-delay: 2s;
-}
-
-@keyframes floatAnimation {
-    0% {
-        transform: translate(0, 0) rotate(0deg);
-    }
-
-    25% {
-        transform: translate(20px, 35px) rotate(5deg);
-    }
-
-    50% {
-        transform: translate(-15px, 25px) rotate(-5deg);
-    }
-
-    75% {
-        transform: translate(35px, -30px) rotate(3deg);
-    }
-
-    100% {
-        transform: translate(-25px, -25px) rotate(-3deg);
-    }
-}
-
-.slider-container {
-    width: 1180px;
-    height: 465px;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-    margin: 0 auto;
-    margin-top: 21px;
-}
-
-@keyframes appear {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.slider {
-    position: relative;
-    height: 463px;
-    overflow: hidden;
-}
-
-.slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    z-index: 1;
-    transition: opacity 0.5s ease;
-    overflow: hidden;
-    pointer-events: none;
-}
-
-.slide.active {
-    opacity: 1;
-    z-index: 2;
-    pointer-events: auto;
-}
-
-.slide img {
-    width: 1180px;
-    height: 465px;
-    object-fit: cover;
-
-    transition: transform 8s ease-in-out;
-}
-
-.slide.active img {
-    transform: scale(1.1);
-}
-
-
-
-
-
-.slide:hover .slide-content {
-    transform: translateY(0);
-    opacity: 1;
-}
-
-/* Slide title and description parallax effects */
-.slide-title {
-    transform: translateX(-50px);
-    opacity: 0;
-    transition: transform 1s ease, opacity 1s ease;
-    transition-delay: 0.2s;
-    font-size: 1.5rem;
-    margin-bottom: 8px;
-}
-
-.slide-description {
-    transform: translateX(50px);
-    opacity: 0;
-    transition: transform 1s ease, opacity 1s ease;
-    transition-delay: 0.4s;
-    font-size: 1rem;
-    opacity: 0.9;
-}
-
-.slide.active .slide-title,
-.slide.active .slide-description {
-    transform: translateX(0);
-    opacity: 1;
-}
-
-/* Navigation arrows */
-.navigation {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 20;
-    pointer-events: none;
-}
-
-.nav-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.7);
-    color: #333;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    transition: all 0.3s ease;
-    pointer-events: auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 30;
-}
-
-.nav-btn.prev {
-    left: 20px;
-}
-
-.nav-btn.next {
-    right: 20px;
-}
-
-.nav-btn:hover {
-    background-color: rgba(255, 255, 255, 0.9);
-    transform: translateY(-50%) scale(1.1);
-}
-
-/* Dots indicators */
-.dots-container {
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    bottom: 20px;
-    width: 100%;
-    z-index: 10;
-}
-
-.dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    margin: 0 5px;
-    background-color: rgba(255, 255, 255, 0.5);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.dot.active {
-    background-color: white;
-    transform: scale(1.2);
-}
-
-/* Animation keyframes for transitions */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes slideInRight {
-    from {
-        transform: translateX(50px);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes slideInLeft {
-    from {
-        transform: translateX(-50px);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes zoomIn {
-    from {
-        transform: scale(1.2);
-        opacity: 0;
-    }
-
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-@keyframes slideInUp {
-    from {
-        transform: translateY(50px);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-/* Transition effect classes */
-.transition-fade .slide-content {
-    animation: fadeIn 1s forwards;
-}
-
-.transition-slideRight .slide-content {
-    animation: slideInRight 1s forwards;
-}
-
-.transition-slideLeft .slide-content {
-    animation: slideInLeft 1s forwards;
-}
-
-.transition-zoom .slide-content {
-    animation: zoomIn 1s forwards;
-}
-
-.transition-slideUp .slide-content {
-    animation: slideInUp 1s forwards;
-}
-
-/* ---------------------------------------- */
-
-
 
 
 
 header {
-    height: 528px;
-    background-color: #484283;
+    height: 628px;
     justify-content: center;
     text-align: center;
     align-items: center;
     margin: 0 auto;
+    background-color: #484283;
 
 }
+.slider_divider{
+    width: 100%;
+    height: 628px;
+    background:url(../public/airmax.webp)  center/cover no-repeat;
+    margin-top: 20px;
+    transition: all 0.5s ease;
+    
+}
+.slider_button_left{
+    position: absolute;
+    width:50px;
+    height: 50px;
+    margin-top: 300px;
+    left: 30px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    opacity: 0.5;
 
+}
+.slider_button_left:hover{
+    opacity: 1;
+    transition: all 0.5s ease;
+    transform: scale(1.2);
+}
+.slider_button_right{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    margin-top: 300px;
+    right: 30px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    opacity: 0.5;
+}
+.slider_button_right:hover{
+    opacity: 1;
+    transition: all 0.5s ease;
+    transform: scale(1.2);
+}
+.slider_rectangle{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    margin-top: 600px;
+    margin-left: 980px;
+    background-color: #ffffff;
+    border-radius: 50%;
+}
 
 .header_divider {
     width: 1180px;
@@ -578,6 +304,8 @@ header {
     align-items: center;
     color: #fff;
     margin: 0 auto;
+    z-index: 7;
+   
     /* border: 1px solid rgb(255, 0, 0); */
 }
 
@@ -595,6 +323,8 @@ header {
     align-items: center;
 
 }
+
+
 
 .header_nav {
     height: 44px;
@@ -764,8 +494,7 @@ header {
 
 .main_title {
     width: 1180px;
-    height: 1257px;
-    margin-top: 60px;
+    margin-top: 140px;
     /* border: 1px solid rgb(255, 0, 0); */
     display: flex;
     gap: 20px;
@@ -1232,7 +961,6 @@ header {
 }
 
 .show_more_btn_title {
-    position: absolute;
     width: 200px;
     height: 60px;
     background-color: #F14F4F;

@@ -2,7 +2,7 @@ const slider = document.querySelector(".slider_divider");
 const slider_button_left = document.querySelector(".slider_button_left");
 const slider_button_right = document.querySelector(".slider_button_right");
 
-const images = [ 'airmax3.webp', 'airmax6.jpg', 'airmax7.jpeg'];
+const images = ["airmax3.webp", "airmax6.jpg", "airmax7.jpeg"];
 let index = 0;
 let intervalId; // interval idarəsi üçün
 
@@ -50,7 +50,6 @@ slider.addEventListener("mouseleave", startSlider);
 
 // İlk açılışda slider başlasın
 startSlider();
-
 
 const main_divider = document.querySelector(".main_section");
 const main_title = document.createElement("div");
@@ -375,18 +374,11 @@ for (let i = 0; i < 36; i++) {
   shoes_image_div_img.alt = "shoes_image_div_img";
   shoes_image_div_img.title = "shoes_image_div_img";
   shoes_image_div_img.setAttribute("id", "shoes_image_div_img");
-  shoes_image_div_img.addEventListener("click", () => {
-    const shoes_image_div_img = document.getElementById(
-      "shoes_image_div_img"
-    );
-    shoes_image_div_img.classList.add("shoes_image_div_img_active");
-  })
-
-   
-
   shoes_image_div.appendChild(shoes_image_div_img);
 
- 
+  const shoes_image_div_title_div = document.createElement("div");
+  shoes_image_div_title_div.classList.add("shoes_image_div_title_div");
+  shoes_image_div.appendChild(shoes_image_div_title_div);
 
   const shoes_image_div_title = document.createElement("div");
   shoes_image_div_title.classList.add("shoes_image_div_title");
@@ -413,13 +405,13 @@ const toggleBtn = document.getElementById("toggleBtn");
 let isExpanded = false; // İzləmək üçün dəyişən
 
 toggleBtn.addEventListener("click", function () {
-  if (content.classList.contains('expanded')) {
-    content.classList.remove('expanded');
-    content.style.maxHeight = "1187px"; 
+  if (content.classList.contains("expanded")) {
+    content.classList.remove("expanded");
+    content.style.maxHeight = "1187px";
     toggleBtn.textContent = `${shoes_image.children.length} Показать еще`;
   } else {
-    content.classList.add('expanded');
-    content.style.maxHeight = content.scrollHeight + "px"; 
+    content.classList.add("expanded");
+    content.style.maxHeight = content.scrollHeight + "px";
     toggleBtn.textContent = "Скрыть";
   }
   isExpanded = !isExpanded; // vəziyyəti dəyişirik
@@ -537,18 +529,196 @@ bascet_price.appendChild(bascet_price_text_2);
 
 bascet_price.appendChild(bascet_price_text);
 
+const about_us_section = document.querySelector(".about_us_section");
 
-const about_us_section = document.querySelector(".about_us_section")
+const about_us_section_divider = document.createElement("div");
+about_us_section_divider.classList.add("about_us_section_divider");
+about_us_section.appendChild(about_us_section_divider);
 
-const about_us_section_divider = document.createElement("div")
-about_us_section_divider.classList.add("about_us_section_divider")
-btn_bascet_text.addEventListener("click", () => {
-  about_us_section_divider.scrollIntoView({ behavior: "smooth" });
-})
-about_us_section.appendChild(about_us_section_divider)
+const cricle_about_1 = document.createElement("div");
+cricle_about_1.classList.add("cricle_about_1");
+about_us_section_divider.appendChild(cricle_about_1);
+
+const cricle_about_2 = document.createElement("div");
+cricle_about_2.classList.add("cricle_about_2");
+about_us_section_divider.appendChild(cricle_about_2);
+
+const cricle_about_3 = document.createElement("div");
+cricle_about_3.classList.add("cricle_about_3");
+about_us_section_divider.appendChild(cricle_about_3);
+
+const about_us_section_divider_text = document.createElement("img");
+about_us_section_divider_text.classList.add("about_us_section_divider_img");
+about_us_section_divider_text.src = "./public/background_about_img.png";
+about_us_section_divider.appendChild(about_us_section_divider_text);
+
+const about_us_section_divider_text_3 = document.createElement("h2");
+about_us_section_divider_text_3.classList.add(
+  "about_us_section_divider_text_2"
+);
+about_us_section_divider_text_3.textContent = "Пара слов о нас";
+about_us_section_divider.appendChild(about_us_section_divider_text_3);
+
+const about_us_section_divider_text_4 = document.createElement("p");
+about_us_section_divider_text_4.classList.add(
+  "about_us_section_divider_text_4"
+);
+about_us_section_divider_text_4.textContent =
+  "Спорт держит нас в форме. Учит дисциплине. Объединяет нас. Через спорт мы можем менять жизни. В том числе с помощью воодушевляющих историй спортсменов. Чтобы помочь тебе подняться и двигаться вперед. ";
+about_us_section_divider.appendChild(about_us_section_divider_text_4);
+
+const about_us_section_divider_text_5 = document.createElement("div");
+about_us_section_divider_text_5.classList.add(
+  "about_us_section_divider_text_5"
+);
+about_us_section_divider.appendChild(about_us_section_divider_text_5);
+
+const about_us_section_divider_text_6 = document.createElement("div");
+about_us_section_divider_text_6.classList.add(
+  "about_us_section_divider_text_6"
+);
+about_us_section_divider_text_5.appendChild(about_us_section_divider_text_6);
+
+const about_us_section_divider_text_7 = document.createElement("p");
+about_us_section_divider_text_7.classList.add(
+  "about_us_section_divider_text_7"
+);
+about_us_section_divider_text_7.textContent = "SneakMax";
+about_us_section_divider_text_5.appendChild(about_us_section_divider_text_7);
 
 
-// const about_us_section_divider_text = document.createElement("img")
-// about_us_section_divider_text.classList.add("about_us_section_divider_img")
-// about_us_section_divider_text.src = "./public/Screenshot 2025-04-18 014429.png"
-// about_us_section_divider.appendChild(about_us_section_divider_text)
+const sports_shoes_section = document.querySelector(".sports_shoes_section");
+
+const sports_shoes_section_divider = document.createElement("div");
+sports_shoes_section_divider.classList.add("sports_shoes_section_divider");
+sports_shoes_section_divider.classList.add("active_sport_section_divider");
+sports_shoes_section_divider.setAttribute("id", "page1");
+sports_shoes_section.appendChild(sports_shoes_section_divider);
+
+
+const warning_p_product_shoes = document.createElement("p")
+warning_p_product_shoes.classList.add("warning_p_product_shoes");
+warning_p_product_shoes.textContent= "1-dən az və ya 3-dən çox seçim etmək olmaz!";
+sports_shoes_section_divider.appendChild(warning_p_product_shoes);
+
+const sports_1 = document.createElement("h2");
+sports_1.classList.add("sports_text_title");
+sports_1.textContent = "Мы подберем идеальную пару для вас";
+sports_shoes_section_divider.appendChild(sports_1);
+
+const sports_2 = document.createElement("p");
+sports_2.classList.add("sports_text_p");
+sports_2.textContent = "Ответьте на три вопроса и мы вышлем каталог с самыми подходящими для вас моделями ";
+sports_shoes_section_divider.appendChild(sports_2);
+
+const sports_3 = document.createElement("div");
+sports_3.classList.add("sports_title_line");
+sports_shoes_section_divider.appendChild(sports_3);
+
+const sports_shoes_section_divider_text = document.createElement("p");
+sports_shoes_section_divider_text.classList.add("sports_shoes_section_divider_text");
+sports_shoes_section_divider_text.textContent = "Какой тип кроссовок рассматриваете?";
+sports_shoes_section_divider.appendChild(sports_shoes_section_divider_text);
+
+const sports_shoes_section_divider_text_2 = document.createElement("div");
+sports_shoes_section_divider_text_2.classList.add("sports_shoes_section_divider_text_2");
+sports_shoes_section_divider.appendChild(sports_shoes_section_divider_text_2);
+
+for (let i = 0; i < 6; i++) {
+  const sports_shoe_divider_cart = document.querySelector(".sports_shoes_section_divider_text_2");
+
+  const sports_shoe_divider = document.createElement("div");
+  sports_shoe_divider.classList.add("sports_shoe_divider");
+  sports_shoe_divider_cart.appendChild(sports_shoe_divider);
+
+  const sports_shoe_img = document.createElement("img");
+  sports_shoe_img.classList.add("sports_shoe_img");
+  sports_shoe_img.src = "./public/shoe_sport_img.jpg";
+  sports_shoe_divider.appendChild(sports_shoe_img);
+
+  const sports_shoe_title = document.createElement("div");
+  sports_shoe_title.classList.add("sports_shoe_title");
+  sports_shoe_divider.appendChild(sports_shoe_title);
+
+  const sports_shoe_text = document.createElement("input");
+  sports_shoe_text.classList.add("sports_shoe_text_input");
+  sports_shoe_text.classList.add("product_shoes_input");
+  sports_shoe_text.setAttribute("type", "checkbox");
+  sports_shoe_text.type = "checkbox";
+  sports_shoe_title.appendChild(sports_shoe_text);
+
+  const sports_shoe_text_2 = document.createElement("p");
+  sports_shoe_text_2.classList.add("sports_shoe_text");
+  sports_shoe_text_2.textContent = "кеды";
+  sports_shoe_title.appendChild(sports_shoe_text_2);
+  
+}
+const sports_shoes_section_divider_text_bottom_line = document.createElement("div");
+sports_shoes_section_divider_text_bottom_line.classList.add("sports_shoes_section_divider_bottom_line");
+sports_shoes_section_divider.appendChild(sports_shoes_section_divider_text_bottom_line);
+
+const sports_shoes_section_divider_text_3 = document.createElement("div");
+sports_shoes_section_divider_text_3.classList.add("sports_shoes_section_divider_text_3");
+sports_shoes_section_divider.appendChild(sports_shoes_section_divider_text_3);
+
+const sports_shoes_section_divider_text_4 = document.createElement("p");
+sports_shoes_section_divider_text_4.classList.add("sports_shoes_section_divider_text_4");
+sports_shoes_section_divider_text_4.textContent = "1 из 3";
+sports_shoes_section_divider_text_3.appendChild(sports_shoes_section_divider_text_4);
+
+
+
+const sports_shoes_section_divider_text_5 = document.createElement("button");
+sports_shoes_section_divider_text_5.classList.add("sports_shoes_section_divider_text_5");
+sports_shoes_section_divider_text_5.textContent = "Следующий шаг";
+console.log(sports_shoes_section_divider_text_5);
+sports_shoes_section_divider_text_3.appendChild(sports_shoes_section_divider_text_5);
+
+const what_size_divider = document.createElement("div");
+what_size_divider.classList.add("sports_shoes_section_divider");
+what_size_divider.setAttribute("id", "page2");
+sports_shoes_section.appendChild(what_size_divider);
+
+const what_size_divider_text = document.createElement("h2");
+what_size_divider_text.classList.add("sports_shoes_section_divider_text");
+what_size_divider_text.setAttribute("id", "page2");
+what_size_divider_text.textContent = "Мы подберем идеальную пару для вас";
+what_size_divider.appendChild(what_size_divider_text);
+
+const nextBtn = document.getElementsByClassName("sports_shoes_section_divider_text_5");
+  const checkboxes = document.querySelectorAll(".product_shoes_input");
+  const warning = document.getElementsByClassName("warning_p_product_shoes");
+
+
+ 
+  nextBtn[0].addEventListener("click", () => {
+    let checkedCount = 0;
+    for (let i = 0; i < checkboxes.length; i++) {
+      if (checkboxes[i].checked) {
+        checkedCount++;
+      }
+    }
+    if (checkedCount === 0) {
+      warning[0].style.display = "block";
+  
+
+    } else if (checkedCount > 0) {
+      warning[0].style.display = "none";
+      const page1 = document.getElementById("page1");
+      const page2 = document.getElementById("page2");
+      const sports_shoes_section_divider_text = document.querySelector(".sports_shoes_section_divider_text");
+      page1.style.display = "none";
+      page2.style.display = "block";
+      sports_shoes_section_divider_text.style.display = "none";
+   
+    }else {
+      warning[0].style.display = "none";
+      const page1 = document.getElementById("page1");
+      const page2 = document.getElementById("page2");
+      const sports_shoes_section_divider_text = document.querySelector(".sports_shoes_section_divider_text");
+      page1.style.display = "none";
+      page2.style.display = "block";
+      sports_shoes_section_divider_text.style.display = "block";
+      
+    }
+  });
